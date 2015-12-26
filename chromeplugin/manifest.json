@@ -9,11 +9,7 @@
     "manifest_version": 2,
     "name": "Smile Always",
     "permissions": [ "webRequest", "webRequestBlocking", "http://www.amazon.com/*", "https://www.amazon.com/*" ],
-    "version": "0.87",
+    "version": "0.88",
     "homepage_url": "http://www.smilealways.io",
-    "author":"Josh Haimson and Dan Elitzer",
-    "page_action": {
-        "default_title" : "SmileAlways is on",
-        "default_icon" : "happy-smile.png"
-    }
+    "author":"Josh Haimson and Dan Elitzer"
 }
