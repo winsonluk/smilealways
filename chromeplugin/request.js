@@ -25,6 +25,7 @@ function detectRedirect(details) {
                + "|(/gp/dmusic/cloudplayer)"
                + "|(/gp/photos)"
                + "|(/gp/wishlist)"
+               + "|(/ap/mfa)"
                + "|(aws.amazon.com)"
                + "|(read.amazon.com)"
                + "|(login.amazon.com)"
