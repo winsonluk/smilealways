@@ -54,6 +54,9 @@ test("testing detectRedirect", function() {
     testHelper("http://www.amazon.com/gp/r.html?R=31397EMN4EI6D&C=1WC8X72NNSJIY&H=EZ9XEOWKFVAPN3ETNHTGAHHUVACA&T=C&U=http%3A%2F%2Fwww.amazon.com%2Fb%2Fref%3Dpe_854610_117920160_amzn_student_wlcmml_menuitem2%3Fie%3DUTF8%26node%3D465600",
             "http://www.amazon.com/gp/r.html?R=31397EMN4EI6D&C=1WC8X72NNSJIY&H=EZ9XEOWKFVAPN3ETNHTGAHHUVACA&T=C&U=http%3A%2F%2Fwww.amazon.com%2Fb%2Fref%3Dpe_854610_117920160_amzn_student_wlcmml_menuitem2%3Fie%3DUTF8%26node%3D465600",
             "test email link 2");
+    testHelper("https://www.amazon.com/gp/f.html?C=blah&K=blah&R=blah&T=C&U=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fcd%2Fm%2FFxRTNUCY84BRXB%2F-%2FTx22GZ1U68IKAGZ%2F2%2FMx3GRFSB857NV2I%3Fref_%3Dpe_623860_70668520&A=blah&H=blah&ref_=pe_623860_70668520",
+        "https://www.amazon.com/gp/f.html?C=blah&K=blah&R=blah&T=C&U=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fcd%2Fm%2FFxRTNUCY84BRXB%2F-%2FTx22GZ1U68IKAGZ%2F2%2FMx3GRFSB857NV2I%3Fref_%3Dpe_623860_70668520&A=blah&H=blah&ref_=pe_623860_70668520",
+        "test email link 3 (new comment notification)");
 
     // Mailing labels -- should not redirect
     testHelper("https://www.amazon.com/gp/f.html?C=blah&K=blah&R=blah&T=C&U=https%3A%2F%2Fwww.amazon.com%2Freturns%2Flabel%2F9ceeablah-blah%2FrmaID%2FDckf6ZftRRMA%3Fref_%3Dpe_1811570_blah_E_Label_Page&A=blah&H=blah&ref_=pe_1811570_136791410_E_Label_Page",
