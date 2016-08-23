@@ -9,11 +9,11 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 
 function detectRedirect(details) {
     var url = details.url;
-    
+
     if (url == null) {
         return;
     }
-    
+
     var http = "http://";
     var https = "https://";
     var amazonurl = "www.amazon.com";
@@ -22,6 +22,7 @@ function detectRedirect(details) {
                + "|(redirect=true)"
                + "|(redirect.html)"
                + "|(r.html)"
+               + "|(f.html)"
                + "|(/gp/dmusic/cloudplayer)"
                + "|(/gp/photos)"
                + "|(/gp/wishlist)"
@@ -31,7 +32,7 @@ function detectRedirect(details) {
                + "|(login.amazon.com)"
                + "|(payments.amazon.com)"
                + "|(amazon.com/clouddrive)";
-    
+
     // Don't try and redirect pages that are in our filter
     if (url.match(filter) != null) {
         return;
