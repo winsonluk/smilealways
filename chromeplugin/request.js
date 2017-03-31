@@ -14,8 +14,15 @@ function detectRedirect(details) {
         return;
     }
 
-    var https = "https://";
+    var domain = url_domain(url);
     var amazonurl = "www.amazon.com";
+    var country = "com";
+    if (domain.includes("amazon.de")) {
+    	amazonurl = "www.amazon.de";
+    	country = "de";
+    }
+
+    var https = "https://";
     // ignore links with these strings in them
     var filter = "(sa-no-redirect=)"
                + "|(redirect=true)"
@@ -31,6 +38,11 @@ function detectRedirect(details) {
                + "|(login.amazon.com)"
                + "|(payments.amazon.com)"
                + "|(amazon.com/clouddrive)"
+               + "|(aws.amazon.de)"
+               + "|(read.amazon.de)"
+               + "|(login.amazon.de)"
+               + "|(payments.amazon.de)"
+               + "|(amazon.de/clouddrive)"
                + "|(http://)"; //all Amazon pages now redirect to HTTPS, also fixes conflict with HTTPS Everywhere extension
 
     // Don't try and redirect pages that are in our filter
@@ -38,11 +50,14 @@ function detectRedirect(details) {
         return;
     }
 
-    return redirectToSmile(https, amazonurl, url);
+    return redirectToSmile(https, amazonurl, url, country);
 }
 
-function redirectToSmile(scheme, amazonurl, url) {
+function redirectToSmile(scheme, amazonurl, url, country) {
     var smileurl = "smile.amazon.com";
+    if (country === "de") {
+    	smileurl = "smile.amazon.de";
+    }
     return {
         // redirect to amazon smile append the rest of the url
         redirectUrl : scheme + smileurl + getRelativeRedirectUrl(amazonurl, url)
@@ -63,4 +78,10 @@ function getRelativeRedirectUrl(amazonurl, url) {
         newurl = relativeUrl + paramStart + noRedirectIndicator;
     }
     return newurl;
+}
+
+function url_domain(data) {
+  var    a      = document.createElement('a');
+         a.href = data;
+  return a.hostname;
 }
